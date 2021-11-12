@@ -3,7 +3,7 @@
 using namespace std;
 
 
-// função do preço do aluguel SEM os descontos de forma de pagamento
+// função de exibição do preço do aluguel SEM os descontos de forma de pagamento
 float exibirPrecoAluguel(float tamanhoCTA, int diasAluguel){
   float precoAluguel;
   int frete = 12;
@@ -46,14 +46,14 @@ float exibirPrecoAluguel(float tamanhoCTA, int diasAluguel){
   return precoAluguel;
 }
 
-// função documentos caninos necessários p/ viagens aéreas
+// função de exibição dos documentos caninos necessários p/ viagens aéreas
 void exibirDocumentosNecessarios() {
   cout << "\n\n\n         DOCUMENTOS DOGUÍNEOS NECESSÁRIOS PARA VIAGENS AÉREAS         \n\n\n";
   cout << "     * P/ VOOS NACIONAIS:\n\n> Atestado médico emitido por um veterinário até 10 dias antes do voo\n> Comprovante vigente de vacina antirrábica aplicada pelo menos 30 dias antes do voo\n\n";
   cout << "     * P/ VOOS INTERNACIONAIS:\n\n> Atestado médico emitido por um veterinário até 10 dias antes do voo\n> Certificado Zoossanitário Internacional (CZI) emitido pelas autoridades sanitárias do país de origem da sua viagem ou de procedência do seu animal.";
 };
  
-// função FAQ
+// função de exibição do FAQ
 void exibirFAQ() {
   cout << "\n\n\n                   FREQUENTLY ASKED QUESTIONS - FAQs                   \n\n\n";
   cout << "     1.   Por que devo alugar uma Caixa de Transporte Aéreo - CTA -, pela Doggy's Easy Travel ao invés de comprar uma?\n\n          Porque estudos realizados pela Doggy's Easy Travel comprovam que o aluguel de CTA's pela nossa loja custa, em média, 5 vezes menos do que a compra de uma CTA em outras lojas, sem contar no comodismo de só pegar a CTA quando for realmente precisar, deixando a casa/apartamento sempre limpo e organizado. Além disso, o(a) tutor(a) do doguinho não precisará se precupar em comprar uma nova caixa caso o animalzinho cresça.\n\n\n";
@@ -66,7 +66,7 @@ void exibirFAQ() {
   cout << "     Continua com dúvidas? Tudo bem, volte ao menu principal e selecione a opção 4 (Contato ao Suporte) para saber como prosseguir.";
 }
 
-// função contato ao suporte
+// função de exibição do contato ao suporte
 void exibirContatoAoSuporte(std::string nome) {
   int simNaoFAQs;
 
@@ -93,7 +93,7 @@ void exibirContatoAoSuporte(std::string nome) {
   }
 }
 
-// função escolha cartão de crédito
+// função de escolha da opção de pagar com cartão de crédito (só aparece se a pessoa escolher pagar com cartão de crédito)
 float cartaoCredito(float precoAluguel) {
   int numeroParcelas;
   float novoPrecoAluguel;
@@ -113,12 +113,12 @@ float cartaoCredito(float precoAluguel) {
   return novoPrecoAluguel;
 }
 
-// função escolha cartão de débito ou pix
+// função de escolha de opção de pagar com cartão de débito ou PIX (só aparece se a pessoa escolher pagar com cartão de débito ou PIX)
 void formaPagamentoEscolhida(std::string tipoPagamento, float precoAluguel, int porcentagem, float novoPrecoAluguel) {
   cout << "\n     Você escolheu a opção de pagar com " << tipoPagamento << ", ganhando, portanto, um desconto de "<< porcentagem << "%. Sendo assim, o valor passou de R$ " << precoAluguel << " para R$ " << novoPrecoAluguel;
 }
 
-// função forma de pagamento
+// função de escolha entre as 3 formas de pagamento (aparece sempre. após feita essa escolha, será chamada uma das 2 funções anteriores)
 void exibirFormaDePagamento(float precoAluguel) {
   int escolhaFormaDePagamento;
   float novoPrecoAluguel;
@@ -162,7 +162,7 @@ int escolherMenuPrincipal(std::string nome) {
     cin >> menuPrincipal;
   } while (menuPrincipal < 1 || menuPrincipal > 4);
 
-  cout << "\n_______________________________________________________________________";
+  cout << "\n_____________________________________________________________________________________________________________________________________________________________";
 
   return menuPrincipal;
 }
@@ -221,7 +221,7 @@ int escolherEstadoDestino(char estadosUF[27][3], int estadoPartida) {
   return estadoDestino;
 }
 
-// função escolha bolsa ou caixa
+// função escolha bolsa ou caixa (só aparece se as medidas do doguinho forem as menores)
 float escolherCaixaOuBolsa() {
   int cabineOuPorao, caixaOuBolsa;
   float tamanhoCTA;
@@ -274,25 +274,25 @@ int main() {
   float pesoDog, tamanhoCTA, precoAluguel, novoPrecoAluguel; 
   char estadosUF[27][3] = {"RO", "AC", "AM", "RR", "PA", "AP", "TO", "MA", "PI", "CE", "RN", "PB", "PE", "AL", "SE", "BA", "MG", "ES", "RJ", "SP", "PR", "SC", "RS", "MS", "MT", "GO", "DF"}; 
 
+
+  // início do código
   cout << "                          DOGGY'S EASY TRAVEL                          \n\n\n";
   cout << "     Prezado(a) cliente,\n\n";
   cout << "     seja muito bem-vindo(a) à Doggy's Easy Travel, a primeira loja do Brasil a se especializar no aluguel de Caixas de Transporte Aéreo - CTA -.\n\n";
   cout << "     Digite o seu primeiro nome para continuar: ";
   cin >> nome;
 
-  cout << "\n_______________________________________________________________________";
+  cout << "\n_____________________________________________________________________________________________________________________________________________________________";
 
-  //Bloco Inicial
   menuPrincipal = escolherMenuPrincipal(nome);
 
-    //Bloco de seleção do menu principal
   switch (menuPrincipal) {
     case 1:
       estadoPartida = escolherEstadoPartida(estadosUF);
 
       estadoDestino = escolherEstadoDestino(estadosUF, estadoPartida);
       
-      cout << "\n_______________________________________________________________________";
+      cout << "\n_____________________________________________________________________________________________________________________________________________________________";
       
       cout << "\n\n     2º PASSO";
 
@@ -311,47 +311,40 @@ int main() {
       cin >> pesoDog;
       cout << fixed << setprecision(1);
 
-      // Bloco Caixa Tamanho 1 ou Bolsa Tamanho único
       if (comprimentoDog <= 30 && larguraDog <= 27 && alturaDog <= 15 && pesoDog <= 4){
         tamanhoCTA = escolherCaixaOuBolsa();
       }
 
-      // Bloco Caixa Tamanho 2        
       else if (comprimentoDog <= 50 && larguraDog <= 38 && alturaDog <= 35 && pesoDog <= 9) {
         cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 2, medindo 53 cm de comprimento x 41 cm de largura x 38 cm de altura e pesando 3 kg.";
 
         tamanhoCTA = 2;
       } 
         
-      // Bloco Caixa Tamanho 3          
       else if (comprimentoDog <= 68 && larguraDog <= 52 && alturaDog <= 46 && pesoDog <= 13) {
         cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 3, medindo 71 cm de comprimento x 55 cm de largura x 49 cm de altura e pesando 5 kg.";
 
         tamanhoCTA = 3;
       } 
       
-      // Bloco Caixa Tamanho 4           
       else if (comprimentoDog <= 78 && larguraDog <= 54 && alturaDog <= 58 && pesoDog <= 22) {
         cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 4, medindo 81 cm de comprimento x 57 cm de largura x 61 cm de altura e pesando 7 kg.";
 
         tamanhoCTA = 4;
       } 
         
-      // Bloco Caixa Tamanho 5                
       else if (comprimentoDog <= 86 && larguraDog <= 61 && alturaDog <= 69 && pesoDog <= 31) {
         cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 5, medindo 89 cm de comprimento x 64 cm de largura x 72 cm de altura e pesando 8.5 kg.";
 
         tamanhoCTA = 5;
       } 
         
-      // Bloco Caixa Tamanho 6               
       else if (comprimentoDog <= 110 && larguraDog <= 75 && alturaDog <= 76 && pesoDog <= 40) {
         cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 6, medindo 110 cm de comprimento x 75 cm de largura x 76 cm de altura e pesando 12 kg.";
 
         tamanhoCTA = 6;
       } 
       
-      // Bloco Caixa Tamanho 7              
       else {
         cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 7, medindo 122 cm de comprimento x 81 cm de largura x 89 cm de altura e pesando 20 kg.";
 
@@ -359,7 +352,7 @@ int main() {
       }
 
       do {
-        cout << "\n_______________________________________________________________________";
+        cout << "\n_____________________________________________________________________________________________________________________________________________________________";
         
         cout << "\n\n     3º PASSO";
 
@@ -367,7 +360,7 @@ int main() {
         cin >> diasAluguel;
       } while (diasAluguel < 1 || diasAluguel > 60);
 
-      cout << "\n_______________________________________________________________________";
+      cout << "\n_____________________________________________________________________________________________________________________________________________________________";
       
       cout << "\n\n     4º PASSO";
 
@@ -376,7 +369,7 @@ int main() {
       cout << "\n     Digite seu e-mail aqui: ";
       cin >> email;
 
-      cout << "\n_______________________________________________________________________";
+      cout << "\n_____________________________________________________________________________________________________________________________________________________________";
       
       cout << "\n\n     5º PASSO";
 
@@ -402,20 +395,14 @@ int main() {
       exibirFormaDePagamento(precoAluguel);
       break;
       
-      // Bloco para o carrinho
-
-
-    // Bloco sobre documentação canina necessária
     case 2:
       exibirDocumentosNecessarios();
       break;
 
-    // Bloco de respostas às perguntas frequentes
     case 3:
       exibirFAQ();
       break;
 
-    // Bloco do contato com o time de suporte
     case 4:
       exibirContatoAoSuporte(nome);
       break;
