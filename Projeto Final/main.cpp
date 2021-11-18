@@ -50,7 +50,7 @@ float exibirPrecoAluguel(float tamanhoCTA, int diasAluguel){
 void exibirDocumentosNecessarios() {
   cout << "\n\n\n         DOCUMENTOS DOGUÍNEOS NECESSÁRIOS PARA VIAGENS AÉREAS         \n\n\n";
   cout << "     * P/ VOOS NACIONAIS:\n\n> Atestado médico emitido por um veterinário até 10 dias antes do voo\n> Comprovante vigente de vacina antirrábica aplicada pelo menos 30 dias antes do voo\n\n";
-  cout << "     * P/ VOOS INTERNACIONAIS:\n\n> Atestado médico emitido por um veterinário até 10 dias antes do voo\n> Certificado Zoossanitário Internacional (CZI) emitido pelas autoridades sanitárias do país de origem da sua viagem ou de procedência do seu animal.";
+  cout << "     * P/ VOOS INTERNACIONAIS:\n\n> Atestado médico emitido por um veterinário até 10 dias antes do voo\n> Certificado Zoossanitário Internacional (CZI) emitido pelas autoridades sanitárias do país de origem da sua viagem ou de procedência do seu animal.\n";
 };
  
 // função de exibição do FAQ
@@ -63,7 +63,7 @@ void exibirFAQ() {
   cout << "     5.   Qual é a documentação necessária para que o meu doguinho possa realizar uma viajem aérea?\n\n          A documentação necessária dependerá do voo ser nacional ou internacional. Para conferir toda a documentação necessária para voos nacionais e internacionais basta retornar ao menu principal selecionar a opção 2.\n\n\n";
   cout << "     6.   Quais são as formas de pagamento aceitas na Doggy's Easy Travel?\n\n          As formas de pagamento aceitas na Doggy's Easy Travel são:\n\n          1. cartão de crédito com opção de parcelamento em até 3x s/ juros\n          2. cartão de débito com desconto de 3% sobre o valor total, sem opção de parcelamento\n          3. PIX com desconto de 5% sobre o valor total, sem opção de parcelamento.\n\n\n";
   cout << "     7.   Qual é o prazo mínimo e o prazo máximo que posso manter uma CTA alugada?\n\n          O prazo mínimo para aluguel de uma CTA é de 1 (um) dia e o prazo máximo é de 60(dias).\n\n\n";
-  cout << "     Continua com dúvidas? Tudo bem, volte ao menu principal e selecione a opção 4 (Contato ao Suporte) para saber como prosseguir.";
+  cout << "     Continua com dúvidas? Tudo bem, volte ao menu principal e selecione a opção 4 (Contato ao Suporte) para saber como prosseguir.\n";
 }
 
 // função de exibição do contato ao suporte
@@ -82,13 +82,11 @@ void exibirContatoAoSuporte(std::string nome) {
   switch (simNaoFAQs) {
     case 1:
       cout << "\n\n     Certo, para que possamos te ajudar, envie um e-mail contendo seu nome e a dúvida bem detalhadinha para suportedoggys_et@det.com e te responderemos o quanto antes. Tá bom?\n\n";
-      cout << "     Desejamos a você e o seu doguinho um excelente dia!\n\n     Au au auuuuuuu.   :P";
       break;
 
     case 2:
       cout << "\n\n     Tudo bem, " << nome << ",\n\n";
       cout << "     volte ao menu principal e selecione a opção 3. Se, mesmo após conferir o nosso FAQ você não encontrar a resposta que procura, mande um e-mail contendo o seu nome a sua dúvida bem detalhadinha para suportedoggys_et@det.com e te responderemos o quanto antes. Tá bom?\n\n";
-      cout << "     Desejamos a você e o seu doguinho um excelente dia!\n\n     Au au auuuuuuu.   :P";
       break;
   }
 }
@@ -125,7 +123,7 @@ void exibirFormaDePagamento(float precoAluguel) {
 
   do{
     cout << "\n\n     Qual será a forma de pagamento?\n\n";
-    cout << "     [1] Cartão de Crédito\t-\ts/ desconto e dividido em até 3x\n     [2] Cartão de Débito\t-\ts/ 3% de desconto e s/ dividir\n     [3] PIX\t\t\t\t-\tc/ 5% de desconto e s/ dividir.\n\n";
+    cout << "     [1] Cartão de Crédito\t-\ts/ desconto e dividido em até 3x\n     [2] Cartão de Débito\t-\tc/ 3% de desconto e s/ dividir\n     [3] PIX\t\t\t\t-\tc/ 5% de desconto e s/ dividir.\n\n";
     cout << "     Digite o número correspondente à sua escolha: ";
     cin >> escolhaFormaDePagamento;
   } while (escolhaFormaDePagamento < 1 || escolhaFormaDePagamento > 3);
@@ -146,7 +144,7 @@ void exibirFormaDePagamento(float precoAluguel) {
       break;
   }
 
-  cout << "\n\n     A Doggy's Easy Travel agradece a preferência.";
+  cout << "\n\n     A Doggy's Easy Travel agradece a preferência.\n";
 }
 
 // função escolha do menu principal
@@ -155,7 +153,7 @@ int escolherMenuPrincipal(std::string nome) {
   
   do {
     //Bloco de apresentação do menu principal
-    cout << "\n\n     " << nome << ", se você deseja fazer uma viagem digna, confortável e acessível tanto para você quanto para o seu doguinho, você realmente veio ao lugar certo.\n";
+    cout << "\n\n\n     " << nome << ", se você deseja fazer uma viagem digna, confortável e acessível tanto para você quanto para o seu doguinho, você realmente veio ao lugar certo.\n";
     cout << "\n     " << "Escolha um número de 1 a 4 para saber mais sobre alguma das opções abaixo.\n\n\n";
     cout << "               MENU PRINCIPAL - Loja Doggy's Easy Travel               \n\n";
     cout << "[1] Aluguel de Caixas de Transporte Aéreo - CTAs\n[2] Documentos necessários para cães realizarem viagens aéreas nacionais e internacionais\n[3] Frequently Asked Questions - FAQs\n[4] Contato ao Suporte\n\n     Digite a opção desejada aqui: ";
@@ -265,6 +263,24 @@ float escolherCaixaOuBolsa() {
   return tamanhoCTA;
 }
 
+//função voltar ao menu principal
+int voltarMenuPrincipal(std::string nome) {
+  int voltarMenu, menuPrincipal;
+  cout << "\n_____________________________________________________________________________________________________________________________________________________________";
+  cout << "\n\n\n     Deseja voltar ao Menu Principal? Digite 0 para SIM ou 1 para NÃO.\n";
+  cout << "     Digite aqui: ";
+  cin >> voltarMenu;
+
+  if (voltarMenu == 0) {
+    menuPrincipal = escolherMenuPrincipal(nome);
+  } else {
+    cout << "\n     Desejamos a você e o seu doguinho um excelente dia!\n\n     Au au auuuuuuu.   :P";
+    menuPrincipal = 0;
+  }
+
+  return menuPrincipal;
+}
+
 int main() {
   // Lista de variáveis
   std::string nome; 
@@ -284,129 +300,134 @@ int main() {
 
   cout << "\n_____________________________________________________________________________________________________________________________________________________________";
 
+  
   menuPrincipal = escolherMenuPrincipal(nome);
 
-  switch (menuPrincipal) {
-    case 1:
-      estadoPartida = escolherEstadoPartida(estadosUF);
+  do {
+    switch (menuPrincipal) {
+      case 1:
+        estadoPartida = escolherEstadoPartida(estadosUF);
 
-      estadoDestino = escolherEstadoDestino(estadosUF, estadoPartida);
-      
-      cout << "\n_____________________________________________________________________________________________________________________________________________________________";
-      
-      cout << "\n\n     2º PASSO";
-
-      cout << "\n\n     Agora precisamos saber algumas medidas e peso do seu doguinho para que possamos te oferecer a Caixa de Transporte aéreo adequada ao tamanho do seu pet e respeitando as normas de transporte aéreo.\n";
-      
-      cout << "\n     Digite o comprimento (em centímetros) do seu dog: ";
-      cin >> comprimentoDog;
-
-      cout << "\n     Digite a largura (em centímetros) do seu dog: ";
-      cin >> larguraDog;
-
-      cout << "\n     Digite a altura (em centímetros) do seu dog: ";
-      cin >> alturaDog;
-
-      cout << "\n     Digite o peso (em quilos) do seu dog: ";
-      cin >> pesoDog;
-      cout << fixed << setprecision(1);
-
-      if (comprimentoDog <= 30 && larguraDog <= 27 && alturaDog <= 15 && pesoDog <= 4){
-        tamanhoCTA = escolherCaixaOuBolsa();
-      }
-
-      else if (comprimentoDog <= 50 && larguraDog <= 38 && alturaDog <= 35 && pesoDog <= 9) {
-        cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 2, medindo 53 cm de comprimento x 41 cm de largura x 38 cm de altura e pesando 3 kg.";
-
-        tamanhoCTA = 2;
-      } 
+        estadoDestino = escolherEstadoDestino(estadosUF, estadoPartida);
         
-      else if (comprimentoDog <= 68 && larguraDog <= 52 && alturaDog <= 46 && pesoDog <= 13) {
-        cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 3, medindo 71 cm de comprimento x 55 cm de largura x 49 cm de altura e pesando 5 kg.";
-
-        tamanhoCTA = 3;
-      } 
-      
-      else if (comprimentoDog <= 78 && larguraDog <= 54 && alturaDog <= 58 && pesoDog <= 22) {
-        cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 4, medindo 81 cm de comprimento x 57 cm de largura x 61 cm de altura e pesando 7 kg.";
-
-        tamanhoCTA = 4;
-      } 
-        
-      else if (comprimentoDog <= 86 && larguraDog <= 61 && alturaDog <= 69 && pesoDog <= 31) {
-        cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 5, medindo 89 cm de comprimento x 64 cm de largura x 72 cm de altura e pesando 8.5 kg.";
-
-        tamanhoCTA = 5;
-      } 
-        
-      else if (comprimentoDog <= 110 && larguraDog <= 75 && alturaDog <= 76 && pesoDog <= 40) {
-        cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 6, medindo 110 cm de comprimento x 75 cm de largura x 76 cm de altura e pesando 12 kg.";
-
-        tamanhoCTA = 6;
-      } 
-      
-      else {
-        cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 7, medindo 122 cm de comprimento x 81 cm de largura x 89 cm de altura e pesando 20 kg.";
-
-        tamanhoCTA = 7;
-      }
-
-      do {
         cout << "\n_____________________________________________________________________________________________________________________________________________________________";
         
-        cout << "\n\n     3º PASSO";
+        cout << "\n\n     2º PASSO";
 
-        cout << "\n\n     Agora precisamos saber por quantos dias você irá querer alugar a caixa.\n\n     Lembrando que o período mínimo para aluguel da CTA é de 1 dia e o período máximo é de 60 dias.\n\n     Digite aqui por quantos dias alugará a CTA: ";
-        cin >> diasAluguel;
-      } while (diasAluguel < 1 || diasAluguel > 60);
+        cout << "\n\n     Agora precisamos saber algumas medidas e peso do seu doguinho para que possamos te oferecer a Caixa de Transporte aéreo adequada ao tamanho do seu pet e respeitando as normas de transporte aéreo.\n";
+        
+        cout << "\n     Digite o comprimento (em centímetros) do seu dog: ";
+        cin >> comprimentoDog;
 
-      cout << "\n_____________________________________________________________________________________________________________________________________________________________";
-      
-      cout << "\n\n     4º PASSO";
+        cout << "\n     Digite a largura (em centímetros) do seu dog: ";
+        cin >> larguraDog;
 
-      cout << "\n\n     Estamos quase acabando. Agora precisamos que você informe o seu último sobrenome e o seu e-mail para que possamos lhe enviar a confirmação do pedido, a nota fiscal e solicitar o endereço completo de recebimento e coleta da CTA.\n\n     Digite o seu último sobrenome aqui: ";
-      cin >> ultimoSobrenome;
-      cout << "\n     Digite seu e-mail aqui: ";
-      cin >> email;
+        cout << "\n     Digite a altura (em centímetros) do seu dog: ";
+        cin >> alturaDog;
 
-      cout << "\n_____________________________________________________________________________________________________________________________________________________________";
-      
-      cout << "\n\n     5º PASSO";
+        cout << "\n     Digite o peso (em quilos) do seu dog: ";
+        cin >> pesoDog;
+        cout << fixed << setprecision(1);
 
-      cout << "\n\n                           RESUMO DO PEDIDO                           \n\n\n";
-      
-      precoAluguel = exibirPrecoAluguel(tamanhoCTA, diasAluguel);
-      
-      cout << "     Nome do(a) cliente \n\t\t- " << nome << " " << ultimoSobrenome << "\n";
-      cout << "     E-mail do(a) cliente \n\t\t- " << email << "\n";
-      
-      if (tamanhoCTA == 1.5) {
-        cout << "     Tamanho da CTA \n\t\t- Bolsa de Transporte Aéreo Tamanho Único\n";
-      } else {
-        cout << "     Tamanho da CTA \n\t\t- Caixa de Transporte Aéreo Tamanho " << tamanhoCTA << "\n";
-      }
-            
-      cout << "     Dias de Aluguel \n\t\t- " << diasAluguel << "\n";
-      cout << "     UF de recebimento da CTA \n\t\t- " << estadosUF[estadoPartida] << "\n";
+        if (comprimentoDog <= 30 && larguraDog <= 27 && alturaDog <= 15 && pesoDog <= 4){
+          tamanhoCTA = escolherCaixaOuBolsa();
+        }
 
-      cout << "     UF de coleta da CTA \n\t\t- " << estadosUF[estadoDestino] << "\n";
-      cout << "\n     Preço: R$ " << precoAluguel << "\n";
+        else if (comprimentoDog <= 50 && larguraDog <= 38 && alturaDog <= 35 && pesoDog <= 9) {
+          cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 2, medindo 53 cm de comprimento x 41 cm de largura x 38 cm de altura e pesando 3 kg.";
 
-      exibirFormaDePagamento(precoAluguel);
-      break;
-      
-    case 2:
-      exibirDocumentosNecessarios();
-      break;
+          tamanhoCTA = 2;
+        } 
+          
+        else if (comprimentoDog <= 68 && larguraDog <= 52 && alturaDog <= 46 && pesoDog <= 13) {
+          cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 3, medindo 71 cm de comprimento x 55 cm de largura x 49 cm de altura e pesando 5 kg.";
 
-    case 3:
-      exibirFAQ();
-      break;
+          tamanhoCTA = 3;
+        } 
+        
+        else if (comprimentoDog <= 78 && larguraDog <= 54 && alturaDog <= 58 && pesoDog <= 22) {
+          cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 4, medindo 81 cm de comprimento x 57 cm de largura x 61 cm de altura e pesando 7 kg.";
 
-    case 4:
-      exibirContatoAoSuporte(nome);
-      break;
-  }
-  
+          tamanhoCTA = 4;
+        } 
+          
+        else if (comprimentoDog <= 86 && larguraDog <= 61 && alturaDog <= 69 && pesoDog <= 31) {
+          cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 5, medindo 89 cm de comprimento x 64 cm de largura x 72 cm de altura e pesando 8.5 kg.";
+
+          tamanhoCTA = 5;
+        } 
+          
+        else if (comprimentoDog <= 110 && larguraDog <= 75 && alturaDog <= 76 && pesoDog <= 40) {
+          cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 6, medindo 110 cm de comprimento x 75 cm de largura x 76 cm de altura e pesando 12 kg.";
+
+          tamanhoCTA = 6;
+        } 
+        
+        else {
+          cout << "\n     O seu doguinho viajará no porão do avião e a caixa adequada para o seu doguinho é a de Tamanho 7, medindo 122 cm de comprimento x 81 cm de largura x 89 cm de altura e pesando 20 kg.";
+
+          tamanhoCTA = 7;
+        }
+
+        do {
+          cout << "\n_____________________________________________________________________________________________________________________________________________________________";
+          
+          cout << "\n\n     3º PASSO";
+
+          cout << "\n\n     Agora precisamos saber por quantos dias você irá querer alugar a caixa.\n\n     Lembrando que o período mínimo para aluguel da CTA é de 1 dia e o período máximo é de 60 dias.\n\n     Digite aqui por quantos dias alugará a CTA: ";
+          cin >> diasAluguel;
+        } while (diasAluguel < 1 || diasAluguel > 60);
+
+        cout << "\n_____________________________________________________________________________________________________________________________________________________________";
+        
+        cout << "\n\n     4º PASSO";
+
+        cout << "\n\n     Estamos quase acabando. Agora precisamos que você informe o seu último sobrenome e o seu e-mail para que possamos lhe enviar a confirmação do pedido, a nota fiscal e solicitar o endereço completo de recebimento e coleta da CTA.\n\n     Digite o seu último sobrenome aqui: ";
+        cin >> ultimoSobrenome;
+        cout << "\n     Digite seu e-mail aqui: ";
+        cin >> email;
+
+        cout << "\n_____________________________________________________________________________________________________________________________________________________________";
+        
+        cout << "\n\n     5º PASSO";
+
+        cout << "\n\n                           RESUMO DO PEDIDO                           \n\n\n";
+        
+        precoAluguel = exibirPrecoAluguel(tamanhoCTA, diasAluguel);
+        
+        cout << "     Nome do(a) cliente \n\t\t- " << nome << " " << ultimoSobrenome << "\n";
+        cout << "     E-mail do(a) cliente \n\t\t- " << email << "\n";
+        
+        cout << fixed << setprecision(1);
+        if (tamanhoCTA == 1.5) {
+          cout << "     Tamanho da CTA \n\t\t- Bolsa de Transporte Aéreo Tamanho Único\n";
+        } else {
+          cout << "     Tamanho da CTA \n\t\t- Caixa de Transporte Aéreo Tamanho " << tamanhoCTA << "\n";
+        }
+              
+        cout << "     Dias de Aluguel \n\t\t- " << diasAluguel << "\n";
+        cout << "     UF de recebimento da CTA \n\t\t- " << estadosUF[estadoPartida] << "\n";
+
+        cout << "     UF de coleta da CTA \n\t\t- " << estadosUF[estadoDestino] << "\n";
+        cout << "\n     Preço: R$ " << precoAluguel << "\n";
+
+        exibirFormaDePagamento(precoAluguel);
+        break;
+        
+      case 2:
+        exibirDocumentosNecessarios();
+        break;
+
+      case 3:
+        exibirFAQ();
+        break;
+
+      case 4:
+        exibirContatoAoSuporte(nome);
+        break;
+    }
+    menuPrincipal = voltarMenuPrincipal(nome);
+  } while (menuPrincipal >= 1 && menuPrincipal <= 4);
+
   return 0;
 }
