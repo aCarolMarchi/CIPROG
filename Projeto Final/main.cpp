@@ -112,7 +112,7 @@ float cartaoCredito(float precoAluguel) {
 }
 
 // função de escolha de opção de pagar com cartão de débito ou PIX (só aparece se a pessoa escolher pagar com cartão de débito ou PIX)
-void formaPagamentoEscolhida(std::string tipoPagamento, float precoAluguel, int porcentagem, float novoPrecoAluguel) {
+void cartaoDebitoPix(std::string tipoPagamento, int porcentagem, float precoAluguel,  float novoPrecoAluguel) {
   cout << "\n     Você escolheu a opção de pagar com " << tipoPagamento << ", ganhando, portanto, um desconto de "<< porcentagem << "%. Sendo assim, o valor passou de R$ " << precoAluguel << " para R$ " << novoPrecoAluguel;
 }
 
@@ -135,12 +135,12 @@ void exibirFormaDePagamento(float precoAluguel) {
 
     case 2:
       novoPrecoAluguel = precoAluguel  * 0.97;
-      formaPagamentoEscolhida("cartão de débito", precoAluguel, 3, novoPrecoAluguel);
+      cartaoDebitoPix("cartão de débito", 3, precoAluguel, novoPrecoAluguel);
       break;
     
     case 3:
       novoPrecoAluguel = precoAluguel * 0.95;
-      formaPagamentoEscolhida("PIX", precoAluguel, 5, novoPrecoAluguel);
+      cartaoDebitoPix("PIX", 5, precoAluguel, novoPrecoAluguel);
       break;
   }
 
@@ -153,7 +153,7 @@ int escolherMenuPrincipal(std::string nome) {
   
   do {
     //Bloco de apresentação do menu principal
-    cout << "\n\n\n     " << nome << ", se você deseja fazer uma viagem digna, confortável e acessível tanto para você quanto para o seu doguinho, você realmente veio ao lugar certo.\n";
+    cout << "\n\n\n     " << nome << ", se você deseja fazer uma viagem digna, confortável e acessível tanto para você quanto para o seu doguinho, além de contribuir para um mundo mais sustentável, você realmente veio ao lugar certo.\n";
     cout << "\n     " << "Escolha um número de 1 a 4 para saber mais sobre alguma das opções abaixo.\n\n\n";
     cout << "               MENU PRINCIPAL - Loja Doggy's Easy Travel               \n\n";
     cout << "[1] Aluguel de Caixas de Transporte Aéreo - CTAs\n[2] Documentos necessários para cães realizarem viagens aéreas nacionais e internacionais\n[3] Frequently Asked Questions - FAQs\n[4] Contato ao Suporte\n\n     Digite a opção desejada aqui: ";
@@ -398,10 +398,11 @@ int main() {
         cout << "     Nome do(a) cliente \n\t\t- " << nome << " " << ultimoSobrenome << "\n";
         cout << "     E-mail do(a) cliente \n\t\t- " << email << "\n";
         
-        cout << fixed << setprecision(1);
         if (tamanhoCTA == 1.5) {
+          cout << fixed << setprecision(1);
           cout << "     Tamanho da CTA \n\t\t- Bolsa de Transporte Aéreo Tamanho Único\n";
         } else {
+          cout << fixed << setprecision(1);
           cout << "     Tamanho da CTA \n\t\t- Caixa de Transporte Aéreo Tamanho " << tamanhoCTA << "\n";
         }
               
@@ -409,6 +410,7 @@ int main() {
         cout << "     UF de recebimento da CTA \n\t\t- " << estadosUF[estadoPartida] << "\n";
 
         cout << "     UF de coleta da CTA \n\t\t- " << estadosUF[estadoDestino] << "\n";
+        cout << fixed << setprecision(2);
         cout << "\n     Preço: R$ " << precoAluguel << "\n";
 
         exibirFormaDePagamento(precoAluguel);
